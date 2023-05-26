@@ -1,7 +1,7 @@
 import { useReducer, createContext, useMemo } from "react";
 
 const GLOBAL_STATE = {
-  isLoggedIn: undefined,
+  isLoggedIn: false,
   theme: "light",
   isModalOpen: false,
 };

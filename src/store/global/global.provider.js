@@ -4,7 +4,7 @@ import { globalActionTypes as actions } from "./global.actions";
 import { GlobalState } from "./global.state";
 
 const GLOBAL_STATE = {
-  isLoggedIn: undefined,
+  isLoggedIn: false,
   theme: "light",
   isModalOpen: false,
 };
