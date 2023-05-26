@@ -1,4 +1,4 @@
-import { useReducer, createContext } from "react";
+import { useReducer, createContext, useMemo } from "react";
 
 const GLOBAL_STATE = {
   isLoggedIn: undefined,
@@ -41,7 +41,8 @@ GlobalState.displayName = "GlobalState";
 
 export const GlobalStateProvider = ({ children }) => {
   const [state, dispatch] = useReducer(globalReducer, GLOBAL_STATE);
-  const value = {
+  const value = useMemo(
+  () => ({
     ...state,
     login: () => {
       dispatch({ type: "LOGIN" })
@@ -61,7 +62,8 @@ export const GlobalStateProvider = ({ children }) => {
     closeModal: () => {
       dispatch({ type: "CLOSE_MODAL" })
     }
-  };
+  }), [state, dispatch]
+  );
 
   return (
   <GlobalState.Provider value={value}>
